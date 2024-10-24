@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="confirmation.css" />
+    <title>Message envoyé - Tornike ZARDIASHVILI</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <span>TornikeZ</span>
+      </div>
+      <div class="header-sections">
+        <a href="#competences" class="header-section">Mes compétences</a>
+        <a href="#projets" class="header-section">Mes Projets</a>
+        <a href="#parcours" class="header-section">Mon parcours</a>
+        <a href="blog/index.html" class="header-section">Blog</a>
+        <a href="contact/index.html" class="header-section">Contact</a>
+        <button class="download-btn" onclick="confirmDownload()">Télécharger mon CV</button>
+      </div>
+    </header>
+
+    <div class="confirmation-section">
+      <div class="confirmation-container">
+        <svg
+          class="confirmation-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <h2>Message envoyé avec succès !</h2>
+        <p>Merci de m'avoir contacté. Je vous répondrai dans les plus brefs délais.</p>
+        <p class="redirect-text">
+          Redirection automatique dans <span id="countdown">10</span> secondes...
+        </p>
+        <a href="../index.html" class="return-btn">Retourner à l'accueil</a>
+      </div>
+    </div>
+
+    <script>
+      let timeLeft = 10;
+      const countdownElement = document.getElementById("countdown");
+
+      const countdown = setInterval(() => {
+        timeLeft--;
+        countdownElement.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+          clearInterval(countdown);
+          window.location.href = "../index.html";
+        }
+      }, 1000);
+
+      function confirmDownload() {
+        const isConfirmed = confirm("Voulez-vous vraiment télécharger mon CV ?");
+        window.location.href = "../media/CV%20Tornike%20ZARDIASHVILI.pdf";
+      }
+    </script>
+  </body>
+</html>

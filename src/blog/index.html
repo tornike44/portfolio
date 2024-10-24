@@ -1,0 +1,43 @@
+<!-- src/blog/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Blog - Tornike ZARDIASHVILI</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <span>TornikeZ</span>
+      </div>
+      <div class="header-sections">
+        <a href="../index.html" class="header-section">Accueil</a>
+        <a href="../index.html#competences" class="header-section">Mes compétences</a>
+        <a href="../index.html#projets" class="header-section">Mes Projets</a>
+        <a href="../index.html#parcours" class="header-section">Mon parcours</a>
+        <a href="index.html" class="header-section">Blog</a>
+        <a href="../contact/index.html" class="header-section">Contact</a>
+        <button class="download-btn" onclick="confirmDownload()">Télécharger mon CV</button>
+      </div>
+    </header>
+    <div class="blog-section">
+      <h2 class="section-title">Blog</h2>
+      <div class="coming-soon-container">
+        <div class="coming-soon-icon">✍️</div>
+        <h3 class="coming-soon-title">Blog en cours de développement</h3>
+        <p class="coming-soon-text">
+          Je prépare du contenu intéressant pour bientôt. Revenez plus tard !
+        </p>
+      </div>
+    </div>
+    <script>
+      function confirmDownload() {
+        const isConfirmed = confirm("Voulez-vous vraiment télécharger mon CV ?");
+        window.location.href = "../../media/CV%20Tornike%20ZARDIASHVILI.pdf";
+      }
+    </script>
+  </body>
+</html>
