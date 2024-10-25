@@ -9,7 +9,7 @@
   <body>
     <header>
       <div class="logo">
-        <span>TornikeZ</span>
+        <a href="index.html">TornikeZ</a>
       </div>
       <div class="header-sections">
         <a href="#competences" class="header-section">Mes compétences</a>
@@ -30,7 +30,9 @@
           <p>🚀 Développeur Freelance en quête de nouveaux projets</p>
         </div>
         <div class="cta-group">
-          <button class="contact-btn">Me contacter</button>
+          <button class="contact-btn" onclick="window.location.href='contact/index.html'">
+            Me contacter
+          </button>
         </div>
       </div>
       <div class="photo">
@@ -417,6 +419,45 @@
         const isConfirmed = confirm("Voulez-vous vraiment télécharger mon CV ?");
         window.location.href = "../media/CV%20Tornike%20ZARDIASHVILI.pdf";
       }
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animation = `fadeInUp 0.6s ease forwards`;
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document.querySelectorAll(".skill-category, .project-card, .timeline-item").forEach((el) => {
+        observer.observe(el);
+      });
+      window.addEventListener("scroll", () => {
+        const photo = document.querySelector(".photo");
+        const scrolled = window.pageYOffset;
+        photo.style.transform = `translateY(${scrolled * 0.1}px)`;
+      });
+      let lastScroll = 0;
+
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > lastScroll && currentScroll > 100) {
+          header.style.transform = "translateY(-100%)";
+        } else {
+          header.style.transform = "translateY(0)";
+        }
+
+        if (currentScroll > 50) {
+          header.style.backgroundColor = "rgba(10, 15, 13, 0.95)";
+        } else {
+          header.style.backgroundColor = "rgba(10, 15, 13, 0.8)";
+        }
+
+        lastScroll = currentScroll;
+      });
     </script>
   </body>
 </html>

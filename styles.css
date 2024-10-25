@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap");
 
 :root {
   --header-height: 4.5rem;
@@ -12,7 +12,7 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   background-color: #0e1512;
   color: #1fd8a4;
   min-height: 100vh;
@@ -32,7 +32,7 @@ header {
   z-index: 1000;
 }
 
-.logo span {
+.logo a {
   font-size: 1.8rem;
   font-weight: 600;
   letter-spacing: 1px;
@@ -587,4 +587,102 @@ header {
   opacity: 0.7;
   font-weight: 400;
   color: #adf0d4;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skill-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-item:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(31, 216, 164, 0.1);
+}
+
+.hero-title {
+  animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+header {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.timeline-date[data-current="true"]::after {
+  animation: markerPulse 2s infinite;
+}
+
+@keyframes markerPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(31, 216, 164, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(31, 216, 164, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(31, 216, 164, 0);
+  }
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 120px;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(31, 216, 164, 0) 0%,
+    rgba(31, 216, 164, 0.3) 10%,
+    rgba(31, 216, 164, 0.3) 90%,
+    rgba(31, 216, 164, 0) 100%
+  );
+}
+
+.achievement-tag {
+  background-color: rgba(31, 216, 164, 0.1);
+  color: #1fd8a4;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(31, 216, 164, 0.2);
+  transition: all 0.3s ease;
+}
+
+.achievement-tag:hover {
+  background-color: rgba(31, 216, 164, 0.2);
+  transform: translateY(-2px);
+}
+
+.timeline-item {
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateX(10px);
+}
+
+.timeline-content {
+  transition: transform 0.2s ease;
 }
