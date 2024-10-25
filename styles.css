@@ -531,7 +531,6 @@ header {
   }
 }
 
-/* Ajoutons ces styles pour la timeline */
 .timeline-content h3 {
   color: #1fd8a4;
   font-size: 1.4rem;
@@ -610,7 +609,7 @@ header {
 }
 
 .hero-title {
-  animation: slideIn 0.8s ease-out;
+  animation: slideIn 0.3s ease-out;
 }
 
 @keyframes slideIn {
@@ -685,4 +684,77 @@ header {
 
 .timeline-content {
   transition: transform 0.2s ease;
+}
+
+.contact-btn,
+.download-btn {
+  position: relative;
+  background: linear-gradient(45deg, #1fd8a4, #adf0d4);
+  color: #0e1512;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.contact-btn::before,
+.download-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #adf0d4, #1fd8a4);
+  z-index: -1;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.contact-btn:hover::before,
+.download-btn:hover::before {
+  opacity: 1;
+}
+
+.contact-btn:hover,
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(31, 216, 164, 0.2);
+}
+
+.contact-btn:active,
+.download-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(31, 216, 164, 0.2);
+}
+
+.download-btn {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.download-btn {
+  background-color: #1fd8a4;
+  color: #0e1512;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-sections {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
 }
