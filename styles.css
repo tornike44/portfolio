@@ -212,7 +212,8 @@ header {
   .hero-section {
     flex-direction: column-reverse;
     text-align: center;
-    padding-top: 100px;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
   }
 
   .photo {
@@ -498,7 +499,7 @@ header {
 
 .timeline-content {
   flex: 1;
-  padding-left: 6rem; /* Augmenté légèrement */
+  padding-left: 6rem;
 }
 
 /* Ajustement du responsive */
@@ -757,4 +758,129 @@ header {
   display: flex;
   gap: 2rem;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 90px; /* Move line to align with date's right edge */
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 80px 20px 1fr;
+    gap: 0;
+    padding: 2rem 0;
+  }
+
+  .timeline-date {
+    width: auto;
+    padding-right: 0;
+    text-align: right;
+    grid-column: 1;
+    padding-left: 0;
+  }
+
+  .timeline-date::after {
+    left: 80px;
+  }
+
+  .timeline-content {
+    padding-left: 1.5rem;
+    grid-column: 3;
+  }
+
+  .timeline-date span {
+    font-size: 1.2rem;
+  }
+  #parcours > div > div:nth-child(1) > div.timeline-date > span.timeline-subtitle {
+    display: none;
+  }
+}
+
+.burger-menu {
+  display: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.burger-icon {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  transition: 0.5s ease-in-out;
+}
+
+.burger-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #1fd8a4;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+.burger-icon span:nth-child(1) {
+  top: 0px;
+}
+
+.burger-icon span:nth-child(2) {
+  top: 8px;
+}
+
+.burger-icon span:nth-child(3) {
+  top: 16px;
+}
+
+.burger-icon.open span:nth-child(1) {
+  top: 8px;
+  transform: rotate(135deg);
+}
+
+.burger-icon.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.burger-icon.open span:nth-child(3) {
+  top: 8px;
+  transform: rotate(-135deg);
+}
+
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block;
+  }
+
+  .header-sections {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 15, 13, 0.98);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .header-sections.active {
+    right: 0;
+  }
+
+  .header-section {
+    font-size: 1.2rem;
+  }
+
+  .download-btn {
+    margin-top: 1rem;
+  }
 }

@@ -11,7 +11,14 @@
       <div class="logo">
         <a href="index.html">TornikeZ</a>
       </div>
-      <div class="header-sections">
+      <div class="burger-menu">
+        <div class="burger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="header-sections mobile-menu">
         <a href="#competences" class="header-section">Compétences</a>
         <a href="#projets" class="header-section">Projets</a>
         <a href="#parcours" class="header-section">Parcours</a>
@@ -480,6 +487,40 @@
         }
 
         lastScroll = currentScroll;
+      });
+      document.addEventListener("DOMContentLoaded", () => {
+        const burgerMenu = document.querySelector(".burger-menu");
+        const burgerIcon = document.querySelector(".burger-icon");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const headerSections = document.querySelectorAll(".header-section");
+
+        burgerMenu.addEventListener("click", () => {
+          burgerIcon.classList.toggle("open");
+          mobileMenu.classList.toggle("active");
+          document.body.style.overflow = mobileMenu.classList.contains("active")
+            ? "hidden"
+            : "auto";
+        });
+
+        headerSections.forEach((link) => {
+          link.addEventListener("click", () => {
+            burgerIcon.classList.remove("open");
+            mobileMenu.classList.remove("active");
+            document.body.style.overflow = "auto";
+          });
+        });
+
+        document.addEventListener("click", (e) => {
+          if (
+            !burgerMenu.contains(e.target) &&
+            !mobileMenu.contains(e.target) &&
+            mobileMenu.classList.contains("active")
+          ) {
+            burgerIcon.classList.remove("open");
+            mobileMenu.classList.remove("active");
+            document.body.style.overflow = "auto";
+          }
+        });
       });
     </script>
   </body>
