@@ -1,0 +1,166 @@
+/* src/components/layout/Header.css */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background-color: rgba(10, 15, 13, 0.8);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo a {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: -webkit-linear-gradient(#adf0d4, #1fd8a4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+
+.header-sections {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.header-section {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 300;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.header-section:hover {
+  color: var(--text-primary);
+}
+
+.header-section::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--text-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.2s ease;
+}
+
+.header-section:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.download-btn {
+  background: linear-gradient(45deg, var(--text-primary), var(--text-secondary));
+  color: var(--bg-primary);
+  border: none;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(31, 216, 164, 0.2);
+}
+
+.burger-menu {
+  display: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.burger-icon {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  transition: 0.5s ease-in-out;
+}
+
+.burger-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: var(--text-primary);
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.15s ease-in-out;
+}
+
+.burger-icon span:nth-child(1) {
+  top: 0px;
+}
+
+.burger-icon span:nth-child(2) {
+  top: 8px;
+}
+
+.burger-icon span:nth-child(3) {
+  top: 16px;
+}
+
+.burger-icon.open span:nth-child(1) {
+  top: 8px;
+  transform: rotate(135deg);
+}
+
+.burger-icon.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.burger-icon.open span:nth-child(3) {
+  top: 8px;
+  transform: rotate(-135deg);
+}
+
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block;
+  }
+
+  .header-sections.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 15, 13, 0.98);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: 0.1s ease-in-out;
+  }
+
+  .header-sections.mobile-menu.active {
+    right: 0;
+  }
+
+  .header-section {
+    font-size: 1.2rem;
+  }
+
+  .download-btn {
+    margin-top: 1rem;
+  }
+
+  .header-section::after {
+    display: none;
+  }
+}

@@ -1,0 +1,7 @@
+/* src/styles/theme.css */
+:root {
+  --bg-primary: #0e1512;
+  --bg-card: rgba(10, 15, 13, 0.8);
+  --text-primary: #1fd8a4;
+  --text-secondary: #adf0d4;
+}

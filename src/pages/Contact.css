@@ -1,8 +1,7 @@
-/* src/contact/index.css */
 .contact-section {
-  padding: 0 10%;
-  margin-top: calc(var(--header-height) + 2rem);
-  min-height: calc(100vh - var(--header-height));
+  overflow: hidden;
+  padding: 0 5%;
+  margin-top: calc(3rem);
 }
 
 .contact-container {
@@ -17,12 +16,12 @@
   background-color: rgba(10, 15, 13, 0.8);
   padding: 2rem;
   border-radius: 10px;
-  border: 1px solid #1fd8a4;
+  border: 1px solid var(--text-primary);
   height: fit-content;
 }
 
 .social-links h3 {
-  color: #1fd8a4;
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
 }
@@ -40,7 +39,7 @@
   padding: 1rem;
   border-radius: 8px;
   background-color: rgba(31, 216, 164, 0.05);
-  color: #adf0d4;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -51,18 +50,18 @@
 }
 
 .social-icon {
-  color: #1fd8a4;
+  color: var(--text-primary);
 }
 
 .contact-form-container {
   background-color: rgba(10, 15, 13, 0.8);
   padding: 2rem;
   border-radius: 10px;
-  border: 1px solid #1fd8a4;
+  border: 1px solid var(--text-primary);
 }
 
 .contact-form-container h3 {
-  color: #1fd8a4;
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
 }
@@ -73,7 +72,7 @@
 
 .form-group label {
   display: block;
-  color: #adf0d4;
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
 }
@@ -85,7 +84,7 @@
   background-color: rgba(31, 216, 164, 0.05);
   border: 1px solid rgba(31, 216, 164, 0.2);
   border-radius: 8px;
-  color: #adf0d4;
+  color: var(--text-secondary);
   font-family: inherit;
   transition: all 0.3s ease;
 }
@@ -98,13 +97,14 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #1fd8a4;
+  border-color: var(--text-primary);
   background-color: rgba(31, 216, 164, 0.1);
 }
 
 .submit-btn {
-  background-color: #1fd8a4;
-  color: #0e1512;
+  width: 100%;
+  background: linear-gradient(45deg, var(--text-primary), var(--text-secondary));
+  color: var(--bg-primary);
   border: none;
   padding: 0.8rem 2rem;
   font-size: 1.1rem;
@@ -112,16 +112,20 @@
   border-radius: 50px;
   font-weight: 600;
   transition: all 0.3s ease;
-  width: 100%;
 }
 
 .submit-btn:hover {
-  background-color: #adf0d4;
   transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(31, 216, 164, 0.2);
 }
 
 @media (max-width: 768px) {
   .contact-container {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-section {
+    padding: 0 5%;
   }
 }
